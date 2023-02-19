@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Person Classifier</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./dropzone.min.css">
+    <link rel="stylesheet" href="./app.css">
+</head>
+<style>
+   
+    body {
+        background: url("../bg.jpg") no-repeat center center fixed;
+        background-size: cover;
+        z-index: -1;
+      }
+    .container1 {
+        width: 80%; /* Set the width of the container */
+        margin: 1% auto; /* Center the container horizontally */
+    }
+    .container2{
+        width:13%;
+        margin: 2% auto;
+    }
+    .container3{
+        width:80%;
+        margin: 1% auto;
+    }
+    .container4{
+        width: 80%;
+        margin: 2% auto;
+    }
+    .container5{
+        width: 80%;
+        margin: 1% auto;
+    }
+    .container6{
+        width: 40%;
+        margin: 2% auto;
+    }
+</style>
+<body>
+    <div style="color:white" class="container6">
+        <h3 >WELCOME TO SPORTS CLASSIFIER</h3>
+    </div>
+
+    <div class="container">
+        <div class="row">
+        <div class="col card-wrapper" data-player="lionel_messi">
+                <div class="card border-0">
+                    <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                        <img class="w-100 h-100" src="../images_dataset/lionel_messi/lionel-messi-psg-16716774614x3.jpg" alt="Card image cap">
+                    </div>
+                    
+                </div>
+            </div>            
+            <div class="col card-wrapper" data-player="maria_sharapova">
+                    <div class="card border-0">
+                        <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                            <img class="w-100 h-100" src="../images_dataset/maria_sharapova/104716179-1549655341961sharapva.jpg" alt="Card image cap">
+                        </div>
+                        
+                    </div>
+            </div>            
+            <div class="col card-wrapper" data-player="roger_fedrer">
+                    <div class="card border-0">
+                        <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                            <img class="w-100 h-100" src="../images_dataset/roger_fedrer/-it-has-not-been-the-case-of-roger-federer-says-top-coach.webp" alt="Card image cap">
+                        </div>
+                        
+                    </div>
+            </div>          
+
+            <div class="col card-wrapper" data-player="serena_williams">
+                <div class="card border-0">
+                    <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                        <img class="w-100 h-100" src="../images_dataset/serena_williams/960x0.jpg" alt="Card image cap">
+                    </div>
+                    
+                </div>
+            </div>      
+
+            <div class="col card-wrapper" data-player="virat_kohli">
+                <div class="card border-0">
+                    <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                        <img class="w-100 h-100" src="../images_dataset/virat_kohli/08vk.gif" alt="Card image cap">
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+        <div class="container">
+            <div class="row">
+            <div class="col card-wrapper" data-player="ronaldo">
+                    <div class="card border-0">
+                        <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                            <img class="w-100 h-100" src="../images_dataset/ronaldo /0x0 (2).jpg" alt="Card image cap">
+                        </div>
+                        
+                    </div>
+                </div>            
+                <div class="col card-wrapper" data-player="ab_de_villiers">
+                        <div class="card border-0">
+                            <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                                <img class="w-100 h-100" src="../images_dataset/ab_de_villiers /11.jpeg" alt="Card image cap">
+                            </div>
+                            
+                        </div>
+                </div>            
+                <div class="col card-wrapper" data-player="neymar_jr">
+                        <div class="card border-0">
+                            <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                                <img class="w-100 h-100" src="../images_dataset/neymar_jr /0424f-16764709058766-1920.jpg" alt="Card image cap">
+                            </div>
+                            
+                        </div>
+                </div>          
+    
+                <div class="col card-wrapper" data-player="lebron_james">
+                    <div class="card border-0">
+                        <div class="position-relative rounded-circle overflow-hidden mx-auto custom-circle-image">
+                            <img class="w-100 h-100" src="../images_dataset/lebron_james /02-virusbrief-lebron-mediumSquareAt3X.jpg" alt="Card image cap">
+                        </div>
+                        
+                    </div>
+                </div>      
+    
+            </div>
+        <div class="container1">
+            <div>
+                        <form action="/file-upload" class="dropzone" id="dropzone">
+                            <div class="dz-message needsclick">
+                                <img src="./images/upload.png" width="50vw" height="50vw"><br>
+                                <span class="note needsclick">Drop files here or click to upload</span>
+                            </div>
+                        </form>
+                    </div>
+        </div>
+                    <div class="container2">
+                        <button id="submitBtn" type="button" class="btn btn-success" style="text-align:center;">Classify</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+            <div class="container5 error" id="error" >
+                <p>Can't classify image. Classifier was not able to detect face and two eyes properly</p>    
+            </div>
+
+            <div  id="resultHolder">
+                
+            </div>
+            <div  id="divClassTable" class="container4">
+                <table id="classTable">
+                        <tr>
+                            <th>Player</th>
+                            <th>Probability Score</th>
+                        </tr>
+                        <tr>
+                            <td style="color: white;">Leonel Messi</td>
+                            <td id="score_lionel_messi" style="color: white;"></td>
+                        </tr>
+                        <tr>
+                            <td style="color: white;">Maria Sharapova</td>
+                            <td id="score_maria_sharapova" style="color: white;"></td>
+                        </tr>
+                        <tr>
+                            <td style="color: white;">Rodger Federer</td>
+                            <td id="score_roger_fedrer" style="color: white;"></td>
+                        </tr>
+                        <tr>
+                            <td style="color: white;">Serena Williams</td>
+                            <td id="score_serena_williams" style="color: white;"></td>
+                        </tr>
+                        <tr>
+                            <td style="color: white;">Virat Kohli</td>
+                            <td id="score_virat_kohli" style="color: white;"></td>
+                        </tr>
+                        <tr>
+                            <td style="color: white;">Ronaldo</td>
+                            <td id="score_ronaldo" style="color: white;"></td>
+                        </tr>
+                        <tr>
+                            <td style="color: white;">Ab  de villiers</td>
+                            <td id="score_ab_de_villiers" style="color: white;"></td>
+                        </tr>
+                        <tr>
+                            <td style="color: white;">Neymar Jr</td>
+                            <td id="score_neymar_jr" style="color: white;"></td>
+                        </tr>
+                        <tr>
+                            <td style="color: white;">Lebron James</td>
+                            <td id="score_lebron_james" style="color: white;"></td>
+                        </tr>
+                        
+                </table>
+            
+            </div>
+            
+        </div>
+
+    </div>
+    <div class="card-body text-center mt-4" >
+        <h4 class="text-uppercase card-title" id="name" style="color: white;"></h4>
+        </p>
+    </div>
+    <div  class="container3" id="my-element" style="color: white;">
+
+    </div>
+    
+
+</body>
+<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<script src="./dropzone.min.js"></script>
+<script src="./app.js"></script>
+</html>
